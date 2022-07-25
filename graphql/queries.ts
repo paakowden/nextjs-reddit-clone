@@ -1,5 +1,27 @@
 import { gql } from "@apollo/client";
 
+export const GET_ALL_VOTES_BY_POST_ID = gql`
+  query Myquery($post_id: ID!) {
+    getVotesByPostId(post_id: $post_id) {
+      created_at
+      id
+      post_id
+      upvote
+      username
+    }
+  }
+`;
+
+export const GET_SUBREDDITS_WITH_LIMIT = gql`
+  query Myquery($limit: Int!) {
+    getSubredditListLimit(limit: $limit) {
+      created_at
+      id
+      topic
+    }
+  }
+`;
+
 export const GET_POST_BY_POST_ID = gql`
   query Myquery($post_id: ID!) {
     getPostListByPostId(post_id: $post_id) {
